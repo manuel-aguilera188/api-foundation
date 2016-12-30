@@ -17,6 +17,7 @@ define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'api_foundation');
+//define('DB_PORT', '8889');
 
  // DATABASE ERROR CODES
 define('USER_CREATED_SUCCESSFULLY', 0);

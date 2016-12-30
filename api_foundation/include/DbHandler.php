@@ -23,7 +23,7 @@ class DbHandler {
     CONSTRUCTOR
  */
     function __construct() {
-        require_once dirname(__FILE__) . './DbConnect.php';
+        require_once 'DbConnect.php';
         // opening db connection
         $db = new DbConnect();
         $this->conn = $db->connect();

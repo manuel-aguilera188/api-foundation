@@ -215,6 +215,11 @@ $app->get('/greetingVIP', 'authenticateMaster',function() {
  /*
         API METHODS
  */
+ 
+/*
+    The next functions are just examples of how you can use the API to build new functionality. They aren't fully implement in the
+    API. 
+*/
 
 /*
         POST METHODS
