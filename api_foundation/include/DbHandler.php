@@ -13,7 +13,7 @@
         4- Prepare the SQL queries to use parameters
         5- Replace the SQL query parameters holders with bind_param
         6- Return the needed response from the CRUD operation
-        7- Describe the functions the best possible inlcuding the expected parameter
+        7- Describe the functions the best possible including the expected parameter
         8- In this layer there should not be any validation of parameters
  */
 class DbHandler {
