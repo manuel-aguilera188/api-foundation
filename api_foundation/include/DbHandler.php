@@ -207,7 +207,7 @@ class DbHandler {
     */
     public function checkApiKey($api_key){
         //query normal
-        $stmt = $this->conn->prepare("SELECT ".API_KEY_ID." FROM ".API_KEY_TABLE_NAME." WHERE ".API_KEY_NAME." = ?");
+        $stmt = $this->conn->prepare("SELECT key_id FROM api_keys WHERE  key_name = ?");
         $stmt->bind_param("s",$api_key);
         $stmt->execute();
         $stmt->store_result();

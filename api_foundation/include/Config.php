@@ -16,7 +16,7 @@
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'task_manager');
+define('DB_NAME', 'api_foundation');
 
  // DATABASE ERROR CODES
 define('USER_CREATED_SUCCESSFULLY', 0);
