@@ -27,6 +27,7 @@ define('USER_ALREADY_EXISTED', 2);
 // GENERIC API CODES
 define('SUCCESS', 0);
 define('GENERIC_ERROR', 50);
+define('API_KEY_ERROR', 10);
 
 //HTTP CODES
 //Successful 2xx

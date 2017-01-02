@@ -10,14 +10,13 @@
         *Use this layer for data validation before passing the parameters to the functions
 
 
-
     ERORR REPORTING
-        Use the function echoResponse passing as parameters the error code and an array with error and message fields
-        $errorCode = 4XX; // any valid http code
-        $responseArray = Array(); //Generate the response var
-        $responseArray["error"] = "" // The error header, could be a code to be handled or anything else
-        $responseArray["message"] = "" //The message related to the error, must be used to give information related to how to solve the call error
-        echoResponse function will set up, parse and send the response in the MIMETYPE specified, in this case 'application/json'
+        Use the function responseBuilder passing as parameters the API code, error header and details about the error.
+        
+        A 200 HTTP Code must be used to get a response from the server. The 200 code means you call the API successfully
+        but may be errors or missing information in your call. You need to use the response code 200 because the API will
+        be used in Mobile HTTP clients as well, and some functions in this clients don't return a response if another code
+        than 200 is returned. You should return a custom code if you want to handle different kinds of errors.
 
     CALLING A METHOD
         *Call the methods of the API using the available HTTP methods, POST, GET, PUT, DELETE, etc.
@@ -191,9 +190,8 @@ function authenticateMaster(\Slim\Route $route) {
         }
     } else {
         // api key is missing in header
-        $response["error"] = true;
-        $response["message"] = "Api key is misssing";
-        echoResponse(400, $response);
+        $response = responseBuilder(API_KEY_ERROR, "Missing API key", "Are you sure you added the API key?");
+        echoResponse(200, $response);
         $app->stop();
     }
 }
