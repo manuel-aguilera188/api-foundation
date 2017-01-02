@@ -124,7 +124,6 @@ function echoResponse($status_code, $response) {
     echo json_encode($response);
 }
 
-
 function authenticateIndividual(\Slim\Route $route) {
     // Getting request headers
     $headers = apache_request_headers();
@@ -180,9 +179,8 @@ function authenticateMaster(\Slim\Route $route) {
         // validating api key
         if (!$db->checkApiKey($api_key)) {
             // api key is not present in users table
-            $response["error"] = true;
-            $response["message"] = "Access Denied. Invalid Api key";
-            echoResponse(401, $response);
+            $response = responseBuilder(API_KEY_ERROR, "Access Denied. Invalid Api key", "Check you're entering a valid API key.");
+            echoResponse(200, $response);
             $app->stop();
         } else {
             //DO anything with an authenticated organization!
